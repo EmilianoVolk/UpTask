@@ -1,0 +1,69 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+@use 'sass:color';
+
+.bar-mobile{
+    background-color: v.$indigo;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include m.tablet {
+        display: none;
+    }
+
+    h1{
+        color: v.$blanco;
+        margin: 0;
+    }
+
+    .menu{
+        img{
+            width: .8rem;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.bar{
+    display: none;
+
+
+    
+    
+    @include m.tablet {
+        background: v.$blanco;
+        flex-grow: 1;
+        padding: 1rem 2rem;
+        box-shadow: 1px 12px 9px -13px rgba(0,0,0,.4);
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        p{
+            margin: 0;
+            font-size: 2rem;
+    
+            span{
+                font-weight: 700;
+                color: v.$indigo;
+            }
+        }
+    
+        .logout{
+            border-radius: 50rem;
+            @include m.boton(color.adjust(v.$indigo, $lightness: -10%), v.$blanco);
+    
+    
+            //error de deprecación
+            & {
+                font-size: 1.5rem; 
+            }
+        }
+    }
+
+}

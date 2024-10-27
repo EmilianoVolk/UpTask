@@ -1,0 +1,60 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+@use 'sass:color';
+
+.container-new-task{
+    display: flex;
+    justify-content: center;
+
+    .add-task{
+        @include m.boton(v.$cyan, v.$blanco)
+    }
+}
+
+.tasks-list{
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    
+    .no-tasks{
+        text-align: center;
+    }
+}
+
+.task{
+    padding: .5rem 2rem;
+    border-bottom: 2px solid color.adjust(v.$grisClaro, $lightness: -5%);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:last-of-type{
+        border: none;
+    }
+
+
+    .options{
+        display: flex;
+        gap: 2rem;
+        button{
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            color: v.$blanco;
+            border-radius: 50rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        .completed{
+            background-color: v.$azul;
+        }
+        .pending{
+            background-color: v.$naranja;
+        }
+        .delete-task{
+            background-color: v.$rojo;
+        }
+    }
+}

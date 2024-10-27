@@ -1,0 +1,115 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+@use 'sass:color';
+
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: v.$grisDarkMode;
+    }
+
+    
+    
+    
+    .formulario label, 
+    .tagline,
+    .login .acciones a,
+    .create .acciones a,
+    .forgot .acciones a{
+        color: v.$blanco;
+    }
+
+    .formulario .campo input::placeholder{
+        color: color.adjust(v.$blanco, $lightness: -35%);
+    }
+
+    .descripcion-pagina,
+    .dashboard .link{
+        color: v.$grisClaro;
+    }
+
+    .formulario .campo input,
+    .page-name{
+        color: color.adjust(v.$blanco, $lightness: -15%);
+    }
+        
+    .formulario .campo input{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: 25%);
+    }
+
+    .alerta.error{
+        background-color: v.$rojo;
+        border-left: solid .5rem color.adjust(v.$rojo, $lightness: 50%);
+        color: v.$blanco;
+    }
+
+    .bar-mobile,
+    .bar{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: -5%);
+    }
+
+    .bar{ 
+        p{
+            color: v.$naranja;
+            span{
+            color: v.$grisClaro;
+            }
+        }
+
+        .logout{
+            @include m.boton(v.$naranja, v.$blanco);
+        }
+    }
+
+    .filters{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: 10%);
+        .filters-inputs{
+           h2,
+           label{
+               color: v.$blanco;
+           }
+   
+           input[type="radio"]{
+               accent-color: v.$naranja;
+           }
+        }
+    }
+    
+    .dashboard{
+        background-color: v.$grisDarkMode; 
+    }
+
+    .projects-list .project{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: 20%);
+
+        &:hover{
+            background-color: color.adjust(v.$grisDarkMode, $lightness: 15%);
+        }
+    }
+
+    .tasks-list .task{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: 10%);
+        border-radius: 1.5rem;
+        border: none;
+        p{
+            color: v.$grisClaro;
+        }
+    } 
+
+    .sidebar{
+        background-color: color.adjust(v.$grisDarkMode, $lightness:     -5%);
+        .sidebar-nav a{
+            &.activo,
+            &:hover{
+                background-color: color.adjust(v.$naranja, $lightness: -5%);
+            }
+        }
+    }
+    
+    
+    .formulario.new-task{
+        background-color: color.adjust(v.$grisDarkMode, $lightness: 10%);
+        legend{
+            color: v.$grisClaro;
+        }
+    }
+}
